@@ -1,0 +1,71 @@
+{
+  "name": "nodejs-boilerplate",
+  "version": "1.0.0",
+  "description": "A delightful way to building a Node.js RESTful API Services with beautiful code written in pure Javascript",
+  "repository": "git+ssh://git@github.com/w3tec/express-typescript-boilerplate.git",
+  "main": "app.js",
+  "keywords": [
+    "NodeJS",
+    "ES6",
+    "express",
+    "boilerplate",
+    "skeleton",
+    "starter-kit"
+  ],
+  "homepage": "https://github.com/AMhaish/nodejs-boilerplate",
+  "author": "Ahmad Mhaish <a.mhaish@gmail.com>",
+  "contributors": [
+    {
+      "name": "Ahmad Mhaish",
+      "email": "a.mhaish@gmail.com",
+      "url": "https://github.com/AMhaish"
+    }
+  ],
+  "scripts": {
+    "clean": "rm -rf build && mkdir build",
+    "build": "npm run migrate",
+    "start": "node ./app.js",
+    "watch": "nodemon ./app.js",
+    "dev": "./node_modules/.bin/eslint ./server --fix && nodemon ./app.js",
+    "test-unit": "mocha --exit ./test/unit/**/*.js",
+    "test-integration": "mocha --exit ./test/integration/**/*.js",
+    "watch-tests": "mocha --exit --watch ./test/{unit,integration}/index.js",
+    "eslint": "./node_modules/.bin/eslint ./server --fix",
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --cache --fix",
+      "git add"
+    ]
+  },
+  "license": "MIT",
+  "dependencies": {
+    "addict-ioc": "^2.5.6",
+    "async": "^2.6.2",
+    "axios": "^0.18.1",
+    "body-parser": "^1.18.3",
+    "chai-as-promised": "^7.1.1",
+    "chai-http": "^4.3.0",
+    "chai-like": "^1.1.1",
+    "chai-things": "^0.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "express-mongo-sanitize": "^2.0.0",
+    "moment": "^2.24.0",
+    "mongoose": "^5.10.7",
+    "newline-json": "^0.1.1",
+    "validator": "^13.1.17",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.7",
+    "mocha": "^4.1.0",
+    "nodemon": "^1.18.10",
+    "sinon": "^7.3.2"
+  }
+}
