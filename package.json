@@ -22,10 +22,7 @@
     }
   ],
   "scripts": {
-    "clean": "rm -rf build && mkdir build",
-    "build": "npm run migrate",
     "start": "node ./app.js",
-    "watch": "nodemon ./app.js",
     "dev": "./node_modules/.bin/eslint ./server --fix && nodemon ./app.js",
     "test-unit": "mocha --exit ./test/unit/**/*.js",
     "test-integration": "mocha --exit ./test/integration/**/*.js",

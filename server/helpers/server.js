@@ -4,9 +4,10 @@ const ioc = require('./ioc')();
 const Middlewares = require('../middlewares');
 const Services = require('../services');
 require('../helpers/logger'); // Initializing the logger
+const { PORT } = process.env;
 
 module.exports = {
-  start(port) {
+  start() {
     // Order of middlewares is so important
     // Injecting default middleware (Should be first so others can read body)
     let defaultMiddleware = ioc.resolve(Middlewares.DefaultMiddleware);
@@ -19,7 +20,7 @@ module.exports = {
     let postLoggerMiddleware = ioc.resolve(Middlewares.PostLoggerMiddleware);
     postLoggerMiddleware.initialize(app);
     this.app = app;
-    this.server = app.listen(port);
+    this.server = app.listen(PORT);
     return this.server;
   },
   stop() {
